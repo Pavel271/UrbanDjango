@@ -2,7 +2,7 @@
 URL configuration for UrbanDjango project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
+    https://docs.djangoproject.com/en/5.1/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,10 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from UrbanDjango.task2.views import func_templates, ClassTemplates
+from task3.views import main, shop, cart
+# from task2.views import func_templates
+from django.views.generic import TemplateView
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('func/', func_templates),
+#     path('class/', TemplateView.as_view(template_name='class_template.html'))
+# ]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('func/', func_templates),
-    path('class/', ClassTemplates.as_view())
+    path('', main, name='main'),
+    path('shop/', shop, name='shop'),
+    path('cart/', cart, name='cart'),
 ]
