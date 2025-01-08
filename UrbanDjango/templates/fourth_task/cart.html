@@ -1,0 +1,18 @@
+{% extends 'fourth_task/menu.html' %} 
+
+{% block pagename %}Корзина{% endblock %}
+
+{% block content %}
+{% if cart_items %}
+<h2>Ваши игры:</h2>
+<ul>
+    {% for item in cart_items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+    <h3>В вашей корзине пусто.</h3>
+{% endif %}
+<button onclick="location.href='{% url 'main' %}'">На главную</button>
+<button onclick="location.href='{% url 'shop' %}'">В магазин</button>
+{% endblock %}
