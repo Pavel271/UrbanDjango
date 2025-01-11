@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from task4.views import main, shop, cart
+from task5.views import sign_up_by_django, sign_up_by_html
 # from task2.views import func_templates
 from django.views.generic import TemplateView
 
@@ -28,7 +29,9 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main, name='main'),
+    path('main', main, name='main'),
     path('shop/', shop, name='shop'),
     path('cart/', cart, name='cart'),
+    path('', sign_up_by_html, name='sign_up_by_html'),
+    path('django_sign_up/', sign_up_by_django, name='sign_up_by_django'),
 ]
